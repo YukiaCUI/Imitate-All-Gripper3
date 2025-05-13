@@ -2,7 +2,7 @@
 
 ## Tips for GRIPPER3 
 
-- Training:
+- Train:
 ```bash
 python3 policy_train.py -tn gripper_task
 ```
@@ -17,7 +17,7 @@ python3 policy_evaluate.py -tn gripper_task -ci 0 -ts 20250512-222722 -show
 - 训练数据episode至少两段，放在`/data/hdf5/gripper_task`中
 
 
-- `Imitate-All/configurations/task_configs/gripper_config.py` 中修改`"max_timesteps": 260,  # 一般可以设置跟数据采集时的episode_len相等`
+- `Imitate-All/configurations/task_configs/gripper_config.py` 中修改`"max_timesteps": 260`
 
 ## Introduction
 
