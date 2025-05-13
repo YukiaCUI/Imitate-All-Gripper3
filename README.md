@@ -1,5 +1,24 @@
 # Imitate All: Imitation Learning Platform For Embodied AI.
 
+## Tips for GRIPPER3 
+
+- Training:
+```bash
+python3 policy_train.py -tn gripper_task
+```
+
+- Evaluate: 注意根据ckpt文件夹修改“20250512-222722”
+```bash
+python3 policy_evaluate.py -tn gripper_task -ci 0 -ts 20250512-222722 -show
+```
+
+- 当前是一个摄像头，`/dev/video2`，根据实际情况修改
+
+- 训练数据episode至少两段，放在`/data/hdf5/gripper_task`中
+
+
+- `Imitate-All/configurations/task_configs/gripper_config.py` 中修改`"max_timesteps": 260,  # 一般可以设置跟数据采集时的episode_len相等`
+
 ## Introduction
 
 This repository contains the codes for configuring, training, evaluating and tuning the models of imitation learning. Make sure your computer has NVIDIA graphics card (memory less than 16G may not be able to train most of the models) and the `nvidia-smi` command is ready (driver installed).
