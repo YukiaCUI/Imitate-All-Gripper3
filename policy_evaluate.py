@@ -194,7 +194,7 @@ def eval_bc(config, ckpt_name, env: CommonEnv):
             try:
                 for t in tqdm(range(max_timesteps)):
                     start_time = time.time()
-                    image_list.append(ts.observation["images"])
+                    image_list.append(ts.observation["images"]["0"])
                     if showing_images:
                         show_images(ts)
                     # pre-process current observations
@@ -238,6 +238,8 @@ def eval_bc(config, ckpt_name, env: CommonEnv):
                         for name, image in ts.observation["images"].items():
                             ros1_logger.log_2D("image_" + name, image)
                     ts: dm_env.TimeStep = env.step(action, sleep_time=dt)
+
+                    print("action: ",action)
 
                     # for visualization
                     qpos_list.append(qpos_numpy)

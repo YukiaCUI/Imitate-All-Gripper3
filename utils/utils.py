@@ -84,7 +84,7 @@ class EpisodicDataset(torch.utils.data.Dataset):
         dataset_path = self._get_dataset_path(index)
         action_chunk = self.action_chunk_size
         with h5py.File(dataset_path, "r") as root:
-            compressed = root.attrs.get("compress", False)
+            compressed = root.attrs.get("compress", True)
             original_action_shape = root["/action"].shape
             episode_len = original_action_shape[0]
             if sample_full_episode:

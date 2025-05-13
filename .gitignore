@@ -159,3 +159,5 @@ test_*.py
 
 *referee*
 reference_*.jpg
+
+*.hdf5

@@ -89,6 +89,9 @@ def make_environment(env_config):
 
         for i in range(robot_num):
             robot_instances.append(AssembledMmkRobot())
+    elif "gripper" in robot_name:
+        from robots.gripper3_robot.gripper3 import GRIPPER3
+        robot_instances.append(GRIPPER3())
     else:
         raise NotImplementedError(f"{robot_name} is not implemented")
 
@@ -102,6 +105,8 @@ def make_environment(env_config):
             from envs.airbot_play_real_env import make_env
         elif "mmk" in robot_name:
             from envs.airbot_mmk_env import make_env
+        elif "gripper" in robot_name:
+            from envs.gripper3_env import make_env
         else:
             raise NotImplementedError(f"robot_name: {robot_name} is not implemented")
     elif habitat == "mujoco":

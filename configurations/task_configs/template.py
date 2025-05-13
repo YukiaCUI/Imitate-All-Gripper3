@@ -125,12 +125,10 @@ ENV_TRAIN_CONFIG_DEFAULT = {
 
 # TODO: use robot_config class instead of robot_num and joint_num
 COMMON_CONFIG_DEFAULT = {
-    "state_dim": 7,  # the dimension of the state space
-    "action_dim": 7,  # the dimension of the action space
+    "state_dim": 8,  # the dimension of the state space
+    "action_dim": 8,  # the dimension of the action space
     "camera_names": [
         "0",
-        "1",
-        "2",
     ],
     # the state_dim and action_dim are used in policy_config
     # TODO: the policy_config should be used by others so that

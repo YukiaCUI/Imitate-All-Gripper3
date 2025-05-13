@@ -32,9 +32,9 @@ def load_hdf5(dataset_dir, dataset_name):
 
 def save_videos(video, dt, video_path=None, swap_channel=False, decompress=False):
     if isinstance(video, list):
-        cam_names = list(video[0].keys())
-        h, w, _ = video[0][cam_names[0]].shape
-        w = w * len(cam_names)
+        # cam_names = list(video[0].keys())
+        cam_names = [0]
+        h, w, _ = video[0].shape
         fps = int(1 / dt)
         out = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*"mp4v"), fps, (w, h))
         for ts, image_dict in enumerate(video):
@@ -232,13 +232,13 @@ if __name__ == "__main__":
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    if args["save_video"]:
-        save_videos(
-            image_dict,
-            dt,
-            video_path=os.path.join(output_dir, dataset_name + "_video.mp4"),
-            decompress=decompress,
-        )
+    # if args["save_video"]:
+        # save_videos(
+        #     image_dict,
+        #     dt,
+        #     video_path=os.path.join(output_dir, dataset_name + "_video.mp4"),
+        #     decompress=decompress,
+        # )
     if args["save_joints"]:
         visualize_joints(
             qpos,
